@@ -99,7 +99,7 @@ const Contact = () => {
 
               <div>
                 <h2 className='text-[25px] primary_text1 font-bold'>Address</h2>
-                <h1>Chinniyambalayam , Coimbathore</h1>
+                <h1>Chinniyampalayam , Coimbathore</h1>
               </div>
             </div>
             <div className='flex gap-5 mb-10'>

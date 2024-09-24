@@ -35,7 +35,7 @@ const LandingPage = () => {
 
 
 
-                    <div className='  w-auto h-screen flex  max-sm:flex-col max-sm:flex-col relative '>
+                    <div className='  w-auto h-screen flex  max-sm:flex-col  relative '>
 
                        
 
