@@ -5,16 +5,16 @@ import { preLoaderAnim } from '../animation'
 const PreLoader = () => {
 
     useEffect(() => {
-        preLoaderAnim()
+        preLoaderAnim();
 
     }, [])
     return (
         <>
             <div className="preloader">
                 <div className="text-container">
-                    <span>Developer</span>
+                    <span >Developer</span>
                     <span>Creater</span>
-                    <span>Vibe</span>
+                    <span>Designer</span>
                 </div>
             </div>
 

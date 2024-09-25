@@ -1,7 +1,9 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import Nav from './component/Nav';
 import PreLoader from './component/PreLoader';
 
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 // Lazy loading components
 const About = lazy(() => import('./router/About'));
 const Blog = lazy(() => import('./router/Blog'));
@@ -16,21 +18,23 @@ const App = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);  
-    }, 4000);
+      setLoading(false);
+    }, 4700);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
       {loading ? (
-       
+
         <PreLoader />
       ) : (
         <>
           <Nav />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className='w-screen h-screen flex justify-center items-center'>
+            <Loading />
+          </div>}>
             <div id="landing-page">
               <LandingPage />
             </div>
