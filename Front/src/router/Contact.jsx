@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import {
-  phone,
   email,
-  location,
   left,
+  location,
+  phone,
   right,
-} from '../assets'
+} from '../assets';
 
 import { useState } from 'react';
 
@@ -156,7 +156,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your Name"
-                  className="border border-gray-300 p-2 rounded-md w-full  bg-slate-100  h-[60px] "
+                  className="border border-gray-300 p-2 rounded-md w-full  bg-slate-100  h-[60px] max-sm:w-[300px]"
                   required
                 />
                 <input
@@ -165,7 +165,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Your Email"
-                  className="border border-gray-300 p-2 rounded-md w-full  bg-slate-100  h-[60px]"
+                  className="border border-gray-300 p-2 rounded-md w-full  bg-slate-100  h-[60px] max-sm:w-[300px]"
                   required
                 />
               </div>
@@ -176,7 +176,7 @@ const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Your Phone"
-                  className="border border-gray-300 p-2 rounded-md w-full bg-slate-100  h-[60px]"
+                  className="border border-gray-300 p-2 rounded-md w-full bg-slate-100  h-[60px] max-sm:w-[300px]"
                 />
                 <input
                   type="text"
@@ -184,7 +184,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Subject"
-                  className="border border-gray-300 p-2 rounded-md w-full  bg-slate-100 h-[60px]"
+                  className="border border-gray-300 p-2 rounded-md w-full  bg-slate-100 h-[60px] max-sm:w-[300px]"
                   required
                 />
               </div>
@@ -193,7 +193,7 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Write your message here"
-                className="border border-gray-300 p-2 rounded-md w-full mb-4 h-32  bg-slate-100  max-sm:w-[320px]"
+                className="border border-gray-300 p-2 rounded-md w-full mb-4 h-32  bg-slate-100  max-sm:w-[300px]"
                 required
               />
               <button

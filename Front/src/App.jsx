@@ -1,17 +1,16 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import Nav from './component/Nav';
 import PreLoader from './component/PreLoader';
 
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-
 // Lazy loading components
 const About = lazy(() => import('./router/About'));
-const Blog = lazy(() => import('./router/Blog'));
 const Contact = lazy(() => import('./router/Contact'));
 const LandingPage = lazy(() => import('./router/LandingPage'));
 const Why = lazy(() => import('./router/Why'));
 const Skill = lazy(() => import('./router/Skill'));
+const Blog = lazy(() => import('./router/Project/Blog'));
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -31,11 +30,13 @@ const App = () => {
       ) : (
         <>
           <Nav />
-          <Suspense fallback={
-            <div className='w-screen h-screen flex justify-center items-center'>
-              <Skeleton height={100} width={100} />
-            </div>
-          }>
+          <Suspense
+            fallback={
+              <div className='w-screen h-screen flex justify-center items-center'>
+                <Skeleton height={100} width={100} />
+              </div>
+            }
+          >
             <div id="landing-page">
               <LandingPage />
             </div>
@@ -52,12 +53,13 @@ const App = () => {
               <Skill />
             </div>
 
-            <div id="contact">
-              <Contact />
+            {/* Always render Blog component */}
+            <div id="project">
+              <Blog />
             </div>
 
-            <div id="blog">
-              <Blog />
+            <div id="contact">
+              <Contact />
             </div>
           </Suspense>
         </>

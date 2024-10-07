@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { leftlogo1, my, rec } from '../assets';
 
 const Skill = () => {
@@ -12,7 +12,7 @@ const Skill = () => {
         const entry = entries[0];
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 } // Trigger when 10% of the component is in view
+      { threshold: 0.1 } 
     );
 
     if (skillRef.current) {
@@ -55,6 +55,7 @@ const Skill = () => {
     css: 0,
     js: 0,
     react: 0,
+    java:0,
   });
 
   useEffect(() => {
@@ -65,6 +66,7 @@ const Skill = () => {
           setTimeout(() => setSkills((prev) => ({ ...prev, css: 85 })), 1000),
           setTimeout(() => setSkills((prev) => ({ ...prev, js: 80 })), 1500),
           setTimeout(() => setSkills((prev) => ({ ...prev, react: 75 })), 2000),
+          setTimeout(() => setSkills((prev) => ({ ...prev, java: 90 })), 3000),
         ];
 
         return () => {
@@ -80,9 +82,9 @@ const Skill = () => {
   const [project, setProject] = useState(0);
 
   return (
-    <div ref={skillRef} className="w-full p-5 max-sm:p-5 max-sm:pl-7 flex max-sm:flex-col h-screen max-sm:mt-10 relative">
+    <div ref={skillRef} className="w-full p-5 max-sm:p-5 max-sm:pl-7 flex max-sm:flex-col h-full max-sm:mt-10 relative max-sm:h-full">
       {/* Left Section */}
-      <div className="absolute left-17 max-sm:right-0">
+      <div className="absolute left-17 max-sm:right-0 " >
         <img src={leftlogo1} alt="" width={100} />
       </div>
       <div className="absolute right-0 max-sm:right-0 bottom-6 max-sm:hidden">
@@ -115,6 +117,7 @@ const Skill = () => {
           <SkillBar label="CSS" percentage={skills.css} />
           <SkillBar label="JavaScript" percentage={skills.js} />
           <SkillBar label="React.js" percentage={skills.react} />
+          <SkillBar label="Java" percentage={skills.java} />
         </div>
 
         <div className="mt-14 flex max-sm:flex-col max-sm:mt-20  ">

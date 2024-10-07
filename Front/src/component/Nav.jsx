@@ -1,15 +1,15 @@
-import { AlignCenter, UserRoundPen } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { AlignCenter, UserRoundPen } from 'lucide-react'; // Importing icons
 import React, { useState } from 'react';
 import { Link } from 'react-scroll'; // For smooth scrolling
-import { motion } from 'framer-motion';
 import '../index.css';
 
-const Nav = () => {
+const Nav = ({ setCurrentSection }) => {
   const data = [
     { name: 'Home', path: 'landing-page' },
     { name: 'About', path: 'about' },
     { name: 'Contact', path: 'contact' },
-    { name: 'Blog', path: 'blog' },
+    { name: 'Project', path: 'project' }, // Corrected name to match the App component
   ];
 
   const [check, setCheck] = useState(false);
@@ -32,7 +32,11 @@ const Nav = () => {
       <div className='relative p-2 mr-32 max-sm:hidden'>
         <ul className='flex gap-8 font-light'>
           {data.map((item, index) => (
-            <li key={index} className='hover:underline'>
+            <li
+              key={index}
+              className='hover:underline'
+              onClick={() => setCurrentSection(item.path)} // Track section clicks
+            >
               <Link to={item.path} smooth={true} duration={500}>
                 {item.name}
               </Link>
@@ -74,7 +78,10 @@ const Nav = () => {
                     smooth={true}
                     duration={500}
                     className='text-center hover:underline primary_text1 text-2xl'
-                    onClick={toggleNavbar}
+                    onClick={() => {
+                      setCurrentSection(item.path); // Track section clicks
+                      toggleNavbar();
+                    }}
                   >
                     {item.name}
                   </Link>
